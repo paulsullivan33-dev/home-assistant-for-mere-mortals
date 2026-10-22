@@ -1,0 +1,91 @@
+The lab — a house that is a configuration
+====================================================================
+
+The lab is software. Home Assistant Core
+2025.1.4 ran on the build machine in a
+Python virtual environment, exactly the
+Core install of chapter 3, with a
+configuration directory describing an
+invented household:
+
+    the Maple Street house
+    somewhere at 41.0, -73.5 (a map pin,
+    not an address), America/New_York
+    server on port 8124 (8123 left free,
+    as a specimen should)
+
+The house's three files are in examples/:
+configuration.yaml (identity, the sun and
+demo integrations, two input_boolean
+helpers, an input_number, a template
+light wired to a helper), automations.yaml
+(the dusk automation), scripts.yaml (the
+goodnight script). The occupants are
+invented; the "owner" account created in
+onboarding was Alex Herrera, a person who
+does not exist, with a lab-only password
+that appears nowhere in this repo.
+
+Versions, exactly as tested:
+
+    homeassistant (Core)     2025.1.4
+    Python                   3.12.3
+    home-assistant-frontend  20250109.2
+
+What the lab verified, in one breath:
+check_config passed (exit 0, near-silent);
+the server booted and answered 302 to its
+onboarding page; the frontend's real HTML
+was served; an owner was created through
+the API and traded for a token; 109
+entities were enumerated (the demo's crowd
+plus the specimen's own); the sun
+integration computed a real next_setting;
+the template porch light turned on via a
+service call and read back on; the
+specimen automation, triggered with its
+condition honestly satisfied, turned the
+light on; the goodnight script turned
+light and mode back off; backup.create
+produced a real archive whose contents
+were listed.
+
+The lab's honest failure is kept, not
+buried: on first boot the demo integration
+failed because four of its library
+requirements were absent from the bare
+Core install — mutagen, ha-ffmpeg (the
+module is haffmpeg), pymicro-vad,
+pyspeex-noise, with numpy arriving
+alongside. Each was found by reading the
+next error in the log. The full story is
+chapter 3 and transcript t02/t03; it is
+also, not coincidentally, the difference
+between the Core shape and the OS shape in
+chapter 2.
+
+Nothing physical was involved. There were
+no bulbs, switches, sensors, or radios on
+the bench; the demo integration's devices
+are the program's own stand-ins, and the
+template light is a definition, not a
+fixture. Real hardware behaviour, real
+pairing, and the visual editors are
+documented-only in this guide and listed
+as such in criteria.md.
+
+The transcript index
+(home-assistant-lab/transcripts/):
+
+    t00  hass --version and package facts
+    t01  check_config on the specimen
+    t02  first boot excerpts: the demo
+         failure chain and the Python
+         deprecation warning
+    t03  the four fixes, the clean boot,
+         the onboarding redirect
+    t04  the API proof: onboarding, token,
+         109 entities, the light, the
+         automation, the script
+    t05  backup.create and the archive's
+         contents

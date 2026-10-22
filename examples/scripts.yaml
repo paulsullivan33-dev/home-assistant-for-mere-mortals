@@ -1,0 +1,13 @@
+# A specimen script (chapter 5): a named sequence
+# other automations (or a dashboard button) can run.
+
+goodnight:
+  alias: "Goodnight"
+  description: "Porch light off, evening mode off."
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id: light.porch_light
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.evening_mode

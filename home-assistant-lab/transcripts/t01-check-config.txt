@@ -1,0 +1,3 @@
+$ hass --script check_config -c maple-street
+Testing configuration at /home/hatch/workspace/home-assistant-build/maple-street
+(exit 0 — no errors reported)

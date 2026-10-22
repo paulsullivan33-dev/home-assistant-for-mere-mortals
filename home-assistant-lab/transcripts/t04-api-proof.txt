@@ -1,0 +1,44 @@
+onboarding user: 200
+token exchange: 200 | token_type: Bearer | expires_in: 1800
+GET /api/states: 200, 109 entities
+  automation.porch_light_on_at_dusk          on
+  climate.ecobee                             heat_cool
+  climate.heatpump                           heat
+  climate.hvac                               cool
+  input_boolean.evening_mode                 off
+  input_boolean.porch_switch                 off
+  input_number.hall_setpoint                 15.0
+  light.bed_light                            off
+  light.ceiling_lights                       on
+  light.entrance_color_white_lights          on
+  light.kitchen_lights                       on
+  light.living_room_rgbww_lights             on
+  light.office_rgbw_lights                   on
+  light.porch_light                          off
+  script.goodnight                           off
+  sensor.carbon_dioxide                      54
+  sensor.carbon_monoxide                     54
+  sensor.outside_humidity                    54
+  sensor.outside_temperature                 15.6
+  sensor.power_consumption                   100
+  sensor.sun_next_dawn                       2026-10-22T10:44:04+00:00
+  sensor.sun_next_dusk                       2026-10-22T22:32:07+00:00
+  sensor.sun_next_midnight                   2026-10-22T04:38:24+00:00
+  sensor.sun_next_noon                       2026-10-22T16:38:30+00:00
+  sensor.sun_next_rising                     2026-10-22T11:12:26+00:00
+  sensor.sun_next_setting                    2026-10-22T22:03:48+00:00
+  sensor.thermostat                          eco
+  sensor.total_energy_kwh                    0
+  sensor.total_energy_mwh                    0
+  sensor.total_gas_ft3                       0.0
+  sensor.total_gas_m3                        0
+  sun.sun                                    below_horizon
+
+sun.sun next_setting: 2026-10-22T22:03:48.063820+00:00
+porch light before: off
+light.turn_on: 200 | porch light after: on
+
+before automation: light = off | evening_mode = on
+automation.trigger: 200 | porch light after: on
+
+script.goodnight: 200 | porch light: off | evening_mode: off

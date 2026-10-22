@@ -1,0 +1,68 @@
+# Maple Street — a specimen house that does not exist.
+# The configuration this guide's lab ran against
+# Home Assistant Core 2025.1.4 (Core install, chapter 3).
+
+homeassistant:
+  name: Maple Street
+  latitude: 41.0
+  longitude: -73.5
+  elevation: 30
+  unit_system: metric
+  currency: USD
+  country: US
+  time_zone: "America/New_York"
+
+# Serve on a nonstandard port so the lab never
+# collides with a real install on 8123.
+http:
+  server_port: 8124
+
+logger:
+  default: info
+
+# The sun integration: sunrise/sunset as states
+# and events, computed from the position above.
+sun:
+
+# The demo integration: a pretend neighbourhood of
+# devices, manufactured by Home Assistant itself.
+demo:
+
+# Helpers: entities you define yourself (chapter 5).
+input_boolean:
+  evening_mode:
+    name: Evening mode
+    icon: mdi:weather-sunset
+  porch_switch:
+    name: Porch switch (the pretend wiring)
+    icon: mdi:toggle-switch
+
+input_number:
+  hall_setpoint:
+    name: Hall thermostat setpoint
+    min: 15
+    max: 26
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+# A light with no bulb: a template light whose
+# state is wired to the porch_switch helper, so
+# the lab can switch it and watch it (chapter 5).
+light:
+  - platform: template
+    lights:
+      porch_light:
+        friendly_name: "Porch light"
+        value_template: "{{ is_state('input_boolean.porch_switch', 'on') }}"
+        turn_on:
+          service: input_boolean.turn_on
+          data:
+            entity_id: input_boolean.porch_switch
+        turn_off:
+          service: input_boolean.turn_off
+          data:
+            entity_id: input_boolean.porch_switch
+
+automation: !include automations.yaml
+script: !include scripts.yaml

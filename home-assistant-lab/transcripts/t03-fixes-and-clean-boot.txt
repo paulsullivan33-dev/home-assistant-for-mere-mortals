@@ -1,0 +1,15 @@
+Fixing the missing requirements one at a time, as chapter 3 tells it:
+
+$ pip install mutagen     -> mutagen-1.48.1
+$ pip install ha-ffmpeg   -> ha-ffmpeg-3.2.2 (the package name has a hyphen; the module is haffmpeg)
+$ pip install pymicro-vad pyspeex-noise -> pymicro-vad-2.1.0, pyspeex-noise-2.0.1
+   (numpy 2.2.0 arrived with pymicro-vad and cleared the demo camera import)
+
+Clean boot, excerpts (hass-boot6.log):
+2026-10-22 02:47:28.925 INFO (MainThread) [homeassistant.setup] Setup of domain demo took 0.01 seconds
+2026-10-22 02:47:30.133 ERROR (ImportExecutor_0) [homeassistant.components.camera.img_util] Error loading libturbojpeg; Camera snapshot performance will be sub-optimal
+2026-10-22 02:47:31.459 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 4.23s
+
+$ curl -s -i http://localhost:8124/ | head -3
+HTTP/1.1 302 Found
+location: /onboarding.html

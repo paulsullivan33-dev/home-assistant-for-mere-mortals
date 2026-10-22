@@ -1,0 +1,7 @@
+First boot, excerpts (hass-boot.log). The demo integration fails:
+
+2026-10-22 02:45:06.769 ERROR (MainThread) [homeassistant.setup] Error during setup of component conversation
+ModuleNotFoundError: No module named 'mutagen'
+2026-10-22 02:45:06.800 ERROR (MainThread) [homeassistant.setup] Setup failed for 'demo': Could not setup dependencies: conversation
+2026-10-22 02:45:07.161 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 82.48s
+2026-10-22 02:45:07.162 WARNING (MainThread) [homeassistant.bootstrap] Support for the running Python version 3.12.3 is deprecated and will be removed in Home Assistant 2025.2; Please upgrade Python to 3.13

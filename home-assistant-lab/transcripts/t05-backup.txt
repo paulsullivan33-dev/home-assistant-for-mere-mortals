@@ -1,0 +1,8 @@
+$ POST /api/services/backup/create  -> 200 (via the API, chapter 8)
+
+$ ls backups/
+e853edc2.tar
+
+$ tar -tf backups/e853edc2.tar
+./backup.json
+homeassistant.tar.gz

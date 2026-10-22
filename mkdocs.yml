@@ -1,0 +1,24 @@
+site_name: Home Assistant for Mere Mortals
+site_description: Plain-language home automation with a hub that lives in your house. Entities and states, the four ways to install it, automations proved on a specimen house, dashboards at the honest level, backups, and the privacy bargain, stated plainly.
+site_url: https://paulsullivan33-dev.github.io/home-assistant-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Home Assistant Is: what-home-assistant-is.md
+  - Ways to Run It: ways-to-run-it.md
+  - Your First Start: your-first-start.md
+  - Devices and Integrations: devices-and-integrations.md
+  - Automations: automations.md
+  - Dashboards: dashboards.md
+  - Backups and Updates: backups-and-updates.md
+  - Privacy and Security: privacy-and-security.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

@@ -1,0 +1,20 @@
+# The specimen automation (chapter 5): when the sun
+# goes down, and only if the household has left
+# Evening mode on, turn the porch light on.
+
+- id: porch_light_on_at_dusk
+  alias: "Porch light on at dusk"
+  description: "Sunset minus fifteen minutes, gated by the Evening mode helper."
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:15:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.porch_light
+  mode: single
