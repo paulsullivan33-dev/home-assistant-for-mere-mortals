@@ -1,6 +1,7 @@
 site_name: Home Assistant for Mere Mortals
 site_description: Plain-language home automation with a hub that lives in your house. Entities and states, the four ways to install it, automations proved on a specimen house, dashboards at the honest level, backups, and the privacy bargain, stated plainly.
 site_url: https://paulsullivan33-dev.github.io/home-assistant-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
 
 # Guides live at the repo root (nice for GitHub browsing).
 # The deploy workflow copies them into docs/ before building.
